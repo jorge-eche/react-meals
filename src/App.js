@@ -4,16 +4,19 @@ import Meals from "./components/Meals/Meals";
 import Cart from "./components/Cart/Cart";
 
 function App() {
-  const [cartIsShown, setCartIsShown] = useState(true);
+  const [cartIsShown, setCartIsShown] = useState(false);
 
-  const modalCloseHandler = (booleanFalse) => {
-    setCartIsShown(booleanFalse);
+  const showCartHandler = () => {
+    setCartIsShown(true);
+  };
+  const hideCartHandler = () => {
+    setCartIsShown(false);
   };
 
   return (
     <Fragment>
-      {cartIsShown ? <Cart onClose={modalCloseHandler} /> : null}
-      <Header />
+      {cartIsShown ? <Cart onHideCart={hideCartHandler} /> : null}
+      <Header onShowCart={showCartHandler} />
       <main>
         <Meals />
       </main>

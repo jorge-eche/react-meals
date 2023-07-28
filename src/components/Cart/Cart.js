@@ -8,22 +8,19 @@ const Cart = (props) => {
     <CartItem meal={meal} key={meal.id} />
   ));
 
-  const handleClose = () => {
-    props.onClose(false);
-  };
   const handleOrder = () => {
     console.log("Ordering meals...");
   };
 
   return (
-    <Modal>
+    <Modal onHideCart={props.onHideCart}>
       <ul className={classes["cart-items"]}>{itemsList}</ul>
       <div className={classes.total}>
         <span>Total</span>
         <span>$80.75</span>
       </div>
       <div className={classes.actions}>
-        <button className={classes["button--alt"]} onClick={handleClose}>
+        <button className={classes["button--alt"]} onClick={props.onHideCart}>
           Close
         </button>
         <button className={classes.button} onClick={handleOrder}>
