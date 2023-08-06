@@ -2,7 +2,6 @@ import { useContext } from "react";
 import Modal from "../UI/Modal/Modal";
 import CartItem from "./CartItem/CartItem";
 import classes from "./Cart.module.css";
-import DUMMY_MEALS from "../../assets/dummy-meals";
 import CartContext from "../../store/cart-context";
 
 const Cart = (props) => {
@@ -12,7 +11,7 @@ const Cart = (props) => {
   const hasItems = cartCtx.items.length > 0;
 
   const cartItemAddHandler = (item) => {
-    cartCtx.addItem(item);
+    cartCtx.addItem({ ...item, amount: 1 });
   };
   const cartItemRemoveHandler = (id) => {
     cartCtx.removeItem(id);
@@ -26,8 +25,8 @@ const Cart = (props) => {
     <CartItem
       meal={meal}
       key={meal.id}
-      onAdd={cartItemAddHandler}
-      onRemove={cartItemRemoveHandler}
+      onAdd={cartItemAddHandler.bind(null, meal)}
+      onRemove={cartItemRemoveHandler.bind(null, meal.id)}
     />
   ));
 
