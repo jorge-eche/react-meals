@@ -3,6 +3,19 @@ import classes from "./CartItem.module.css";
 const CartItem = (props) => {
   const price = `$${props.meal.price.toFixed(2)}`;
 
+  const addItemHandler = () => {
+    props.onAdd({
+      id: props.meal.id,
+      name: props.meal.name,
+      price: props.meal.price,
+      amount: 1,
+    });
+  };
+
+  const removeItemHandler = () => {
+    props.onRemove(props.meal.id);
+  };
+
   return (
     <li className={classes["cart-item"]}>
       <div>
@@ -13,8 +26,8 @@ const CartItem = (props) => {
         </div>
       </div>
       <div className={classes.actions}>
-        <button>-</button>
-        <button>+</button>
+        <button onClick={removeItemHandler}>-</button>
+        <button onClick={addItemHandler}>+</button>
       </div>
     </li>
   );
