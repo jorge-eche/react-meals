@@ -4,12 +4,13 @@ const CartItem = (props) => {
   const price = `$${props.meal.price.toFixed(2)}`;
 
   const addItemHandler = () => {
-    props.onAdd({
+    const addedItem = {
       id: props.meal.id,
       name: props.meal.name,
       price: props.meal.price,
       amount: 1,
-    });
+    };
+    props.onAdd(addedItem);
   };
 
   const removeItemHandler = () => {

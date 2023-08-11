@@ -11,7 +11,7 @@ const Cart = (props) => {
   const hasItems = cartCtx.items.length > 0;
 
   const cartItemAddHandler = (item) => {
-    cartCtx.addItem({ ...item, amount: 1 });
+    cartCtx.addItem(item);
   };
   const cartItemRemoveHandler = (id) => {
     cartCtx.removeItem(id);
@@ -25,8 +25,8 @@ const Cart = (props) => {
     <CartItem
       meal={meal}
       key={meal.id}
-      onAdd={cartItemAddHandler.bind(null, meal)}
-      onRemove={cartItemRemoveHandler.bind(null, meal.id)}
+      onAdd={cartItemAddHandler}
+      onRemove={cartItemRemoveHandler}
     />
   ));
 
@@ -34,7 +34,7 @@ const Cart = (props) => {
     <Modal onHideCart={props.onHideCart}>
       <ul className={classes["cart-items"]}>{itemsList}</ul>
       <div className={classes.total}>
-        <span>Total</span>
+        <span>Total Amount</span>
         <span>{totalAmount}</span>
       </div>
       <div className={classes.actions}>
