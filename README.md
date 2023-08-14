@@ -30,8 +30,8 @@ Users should be able to:
 
 ### Screenshot
 
-![Screenshot of the project1](./src/img/screenshot1.png)
-![Screenshot of the project2](./src/img/screenshot2.png)
+![Screenshot of the project1](./src/screenshots/screenshot1.png)
+![Screenshot of the project2](./src/screenshots/screenshot2.png)
 
 ### Links
 
