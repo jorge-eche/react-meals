@@ -1,6 +1,6 @@
 # React Meals.
 
-A React food application that lets the user make an order and check the cart.
+A React food application that lets the user make an order and check a meals cart.
 
 ## Table of contents
 
@@ -22,9 +22,9 @@ A React food application that lets the user make an order and check the cart.
 Users should be able to:
 
 - Add one or more meals to the cart.
-- Remove a whole meal or just one item from the cart.
-- See the updated total amount of the order.
-- Receive a 'Thank you' message after order is finalized.
+- Remove from the cart an individual item or the whole meal.
+- See the updated total amount (price) of the order.
+- Receive a confirmation 'Thank you' message after order is finalized.
 - View the optimal layout depending on their device's screen size.
 - See hover and animated states for interactive elements.
 
@@ -49,16 +49,17 @@ Users should be able to:
 
 ### What I learned
 
-- This project was very important for cementing some key React hooks and tools: Context API, useReducer, Portals and useRef. I've learned and understood the difference between them, the use cases, the do's and do not's, etc.
+- This project was very important for cementing key React hooks and tools: Context API, useReducer, Portals and useRef. I've learned and understood the difference between them, the use cases, the do's and do not's, etc.
 - Not least important, I got to review the React basics I already knew: useState, useEffect hooks, conditional rendering of lists, styling React components, forms, Fragments, managing side effects, among others.
+- Lastly, thanks to this project I came to appreciate the beauty and usefulness of CSS Modules, which permits us to separate CSS files component-wise while at the same time saving us from the hassle of coordinating and figuring out different class / id names so styles do not get overwritten by other more specific ones.
 
 ### If I had more time I would change this
 
-- Even though the goal of the app was to get more comfortable with managing State with Context and Reducer, if I had more time I would add a more sophisticated logic behind the 'Order' meal button, so that something fancier happens after the user order the meals they want.
+- Even though the main goal of the app was to practice more comple State management with Context and Reducer, if I had more time I would like to add a more sophisticated logic behind the 'Order' meal button, so that something fancier than a 'Thank You' message happens after the user order their meals.
 
 ### Continued development
 
-- I've already finished a Jest and React Testing Library course, so I decided to embark on an thorough React course, which is the second course on React I do. After I finish with React I will go for TypeScript.
+- I've already finished a Jest and React Testing Library course, so I decided to embark on an thorough React course, which is the third course on React I do. After I finish with React I will go for TypeScript.
 
 ## Author
 
