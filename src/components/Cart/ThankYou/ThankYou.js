@@ -1,13 +1,19 @@
 import classes from "./ThankYou.module.css";
 
-const ThankYou = () => {
+const ThankYou = (props) => {
+  const closeHandler = () => {
+    props.onResetCart();
+  };
+
   return (
     <>
       <div className={classes.total}>
         <span>Thanks for your order!</span>
       </div>
       <div className={classes.actions}>
-        <button className={classes["button--alt"]}>Close</button>
+        <button className={classes["button--alt"]} onClick={closeHandler}>
+          Close
+        </button>
       </div>
     </>
   );

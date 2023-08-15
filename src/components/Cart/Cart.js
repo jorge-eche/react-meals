@@ -20,7 +20,18 @@ const Cart = (props) => {
   };
 
   const orderHandler = () => {
-    setIsThankYou(true);
+    const confirmOrder = window.confirm("Confirm order?");
+    if (confirmOrder) {
+      setIsThankYou(true);
+    } else {
+      return;
+    }
+  };
+
+  const resetHandler = () => {
+    cartCtx.resetItems();
+    setIsThankYou(false);
+    props.onHideCart();
   };
 
   const itemsList = cartCtx.items.map((meal) => (
@@ -34,11 +45,11 @@ const Cart = (props) => {
 
   return (
     <Modal onHideCart={props.onHideCart}>
-      <ul className={classes["cart-items"]}>{itemsList}</ul>
       {isThankYou ? (
-        <ThankYou />
+        <ThankYou onResetCart={resetHandler} />
       ) : (
         <>
+          <ul className={classes["cart-items"]}>{itemsList}</ul>
           <div className={classes.total}>
             <span>Total Amount</span>
             <span>{totalAmount}</span>
