@@ -4,15 +4,16 @@ import MealItemForm from "./MealItemForm";
 import classes from "./MealItem.module.css";
 
 const MealItem = (props) => {
+  const [mealId, meal] = props.meal;
   const cartCtx = useContext(CartContext);
 
-  const price = `$${props.meal.price.toFixed(2)}`;
+  const price = `$${meal.price.toFixed(2)}`;
 
   const AddToCartHandler = (amount) => {
     cartCtx.addItem({
-      id: props.meal.id,
-      name: props.meal.name,
-      price: props.meal.price,
+      id: mealId,
+      name: meal.name,
+      price: meal.price,
       amount: amount,
     });
   };
@@ -20,12 +21,12 @@ const MealItem = (props) => {
   return (
     <li className={classes.meal}>
       <div>
-        <h3>{props.meal.name}</h3>
-        <div className={classes.description}>{props.meal.description}</div>
+        <h3>{meal.name}</h3>
+        <div className={classes.description}>{meal.description}</div>
         <div className={classes.price}>{price}</div>
       </div>
       <div>
-        <MealItemForm id={props.meal.id} onAddToCart={AddToCartHandler} />
+        <MealItemForm id={mealId} onAddToCart={AddToCartHandler} />
       </div>
     </li>
   );

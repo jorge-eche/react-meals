@@ -1,27 +1,17 @@
-const DUMMY_MEALS = [
-  {
-    id: "m1",
-    name: "Sushi",
-    description: "Finest fish and veggies",
-    price: 22.99,
-  },
-  {
-    id: "m2",
-    name: "Schnitzel",
-    description: "A german specialty!",
-    price: 16.5,
-  },
-  {
-    id: "m3",
-    name: "Barbecue Burger",
-    description: "American, raw, meaty",
-    price: 12.99,
-  },
-  {
-    id: "m4",
-    name: "Green Bowl",
-    description: "Healthy...and green...",
-    price: 18.99,
-  },
-];
-export default DUMMY_MEALS;
+// const fetchMeals = async () => {
+//   const response = await fetch(
+//     "https://react-http-c78b6-default-rtdb.firebaseio.com/meals.json"
+//   );
+//   const data = await response.json();
+//   const transformedData = Object.entries(data);
+//   return transformedData;
+// };
+
+// const DUMMY_MEALS = fetchMeals();
+
+const url = "https://react-http-c78b6-default-rtdb.firebaseio.com/meals.json";
+const response = await fetch(url);
+const data = await response.json();
+const DUMMY_MEALS = Object.entries(data);
+
+export { DUMMY_MEALS };
